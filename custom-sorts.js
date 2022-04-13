@@ -33,32 +33,41 @@ function oddEvenSort(arr) {
     let smallestOdd = Infinity;
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] % 2 === 0) {
-        if(arr[i]<smallestEven){
+        if (arr[i] < smallestEven) {
           smallestEven = arr[i];
         }
       } else {
-        if(arr[i]<smallestOdd){
+        if (arr[i] < smallestOdd) {
           smallestOdd = arr[i];
         }
       }
     }
-    if(smallestEven !== Infinity){
+
+    if (smallestEven !== Infinity) {
       even.push(smallestEven);
       let smallestEvenIndex = arr.indexOf(smallestEven);
-      arr.splice(smallestEvenIndex,1);
+      arr.splice(smallestEvenIndex, 1);
     }
-    if(smallestOdd !== Infinity){
+    if (smallestOdd !== Infinity) {
       odd.push(smallestOdd);
       let smallestOddIndex = arr.indexOf(smallestOdd);
-      arr.splice(smallestOddIndex,1);
+      arr.splice(smallestOddIndex, 1);
     }
-
   }
   return odd.concat(even);
 }
 
 function validAnagrams(s, t) {
-  // Your code here
+  let sArray = s.split("")
+  let tArray = t.split("")
+
+  sArray.sort()
+  tArray.sort()
+
+  if(sArray.join("") === tArray.join("")) {
+    return true;
+  }
+  return false;
 }
 
 function reverseBaseSort(arr) {
