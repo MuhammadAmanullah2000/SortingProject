@@ -1,6 +1,28 @@
 function ageSort(users) {
-  // Your code here
+  let copyUsers = users.slice();
+  let sortedUsers = [];
+
+
+  while(copyUsers.length > 0) {
+    let index;
+    let lowestAge = Infinity;
+
+    for(let i = 0; i < copyUsers.length; i++) {
+      let current = copyUsers[i]
+      if(current["age"] < lowestAge) {
+        lowestAge = current["age"]
+        index = i;
+      }
+    }
+
+    sortedUsers.push(copyUsers[index])
+    copyUsers.splice(index, 1)
+
+  }
+
+  return sortedUsers;
 }
+
 
 function oddEvenSort(arr) {
   // Your code here
